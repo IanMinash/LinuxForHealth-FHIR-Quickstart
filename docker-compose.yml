@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  fhir-server:
+    image: ghcr.io/linuxforhealth/fhir-server:5.1.1
+    ports:
+      - 9443:9443
+    volumes:
+      - ./overrides:/opt/ol/wlp/usr/servers/defaultServer/configDropins/overrides
+      - ./server.env:/opt/ol/wlp/usr/servers/defaultServer/server.env
+      - ./server.xml:/opt/ol/wlp/usr/servers/defaultServer/server.xml
+      - ./fhir-server-config.json:/opt/ol/wlp/usr/servers/defaultServer/config/default/fhir-server-config.json
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

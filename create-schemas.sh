@@ -1,0 +1,1 @@
+java -jar ./fhir-persistence-schema-cli.jar --db-type postgresql --prop-file ./connection.properties --schema-name fhirdata --create-schemas
